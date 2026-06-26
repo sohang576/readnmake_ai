@@ -1,6 +1,4 @@
-// Base URL for the Flask API backend
-// Change this URL when deploying the backend (e.g. to Render or Railway)
-const BASE_URL = "http://localhost:5000";
+const BASE_URL = window.location.origin;
 
 // DOM Elements
 const appContainer = document.getElementById("app-container");
