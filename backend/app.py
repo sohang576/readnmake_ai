@@ -10,9 +10,15 @@ import google.generativeai as genai
 # Load environment variables
 load_dotenv()
 
-app = Flask(__name__)
+# Resolve absolute path to the frontend folder
+frontend_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'frontend'))
+app = Flask(__name__, static_folder=frontend_dir, static_url_path='')
 # Enable CORS on all routes
 CORS(app)
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 # Configure Gemini API Key
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
