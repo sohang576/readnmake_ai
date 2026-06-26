@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReadnMake AI - Research Roadmap Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app-container" class="initial-view">
+    <!-- Header Hero Section -->
+    <header class="hero-header">
+      <h1 id="logo-text">ReadnMake AI</h1>
+      <p id="tagline">What do you want to build today?</p>
+      
+      <!-- Input Search Form -->
+      <form id="search-form">
+        <div class="input-wrapper">
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Type your project idea here (e.g. build an offline local RAG system, train a custom diffusion model)..." 
+            required 
+            autocomplete="off"
+          >
+        </div>
+        <button type="submit" id="search-btn">Find Papers & Build Plan</button>
+      </form>
+    </header>
+
+    <!-- Error message display area -->
+    <div id="error-container" class="error-box hidden">
+      <p id="error-message"></p>
+      <button id="error-close-btn">&times;</button>
+    </div>
+
+    <!-- Loading screen placeholder -->
+    <div id="loading-container" class="loading-box hidden">
+      <div class="spinner"></div>
+      <p class="loading-text">Retrieving recent arXiv research papers & generating roadmap...</p>
+    </div>
+
+    <!-- Results Panel Layout: 35/65 column ratio -->
+    <main id="results-panel" class="results-layout hidden">
+      <!-- Left panel: Roadmap Flowchart (35%) -->
+      <section class="roadmap-column">
+        <h2 class="section-title">Reading Roadmap</h2>
+        <div id="roadmap-flowchart" class="flowchart-container">
+          <!-- Roadmap step cards will be dynamically injected here -->
+        </div>
+      </section>
+
+      <!-- Right panel: ArXiv Papers (65%) -->
+      <section class="papers-column">
+        <h2 class="section-title">Recent Relevant Papers</h2>
+        <div id="papers-list" class="papers-list-container">
+          <!-- arXiv paper cards will be dynamically injected here -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
